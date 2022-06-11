@@ -486,7 +486,7 @@ export const BottomSheet = React.forwardRef<
     down,
     first,
     last,
-    memo = spring.y.getValue() as number,
+    memo = spring.y.get() as number,
     movement: [, _my],
     tap,
     velocity,
@@ -513,7 +513,7 @@ export const BottomSheet = React.forwardRef<
     }
 
     const rawY = memo + my
-    const predictedDistance = my * velocity
+    const predictedDistance = my * direction
     const predictedY = Math.max(
       minSnapRef.current,
       Math.min(maxSnapRef.current, rawY + predictedDistance * 2)
